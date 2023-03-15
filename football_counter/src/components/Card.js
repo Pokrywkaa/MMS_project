@@ -1,12 +1,15 @@
+import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import Counter from './Counter';
+import Slider_percentege from './Slider_percentege';
 
-const Counter = (props) => {
+const Card = (props) => {
     const [count1, setCount1] = useState(0);
     const [count2, setCount2] = useState(0);
-   return (
+    return(
       <View
         style={[
           styles.container,
@@ -26,7 +29,11 @@ const Counter = (props) => {
             onPress={() => {setCount1(count1 + 1)}} title="+"
           />
 
-          <Icon name={props.icon_counter} size={40} color={props.color_icon} />
+          <Icon.Button name={props.icon_counter}  size={40} color={props.color_icon}
+          backgroundColor='transparent'
+          position='relative' paddingLeft={11} allignItems='center'
+          onPress={()=>props.props.navigation.navigate('BlankPage',
+          initialParams={'color': props.color})} />
 
           <Icon.Button name='minus-circle' backgroundColor='transparent' color='black' size={30}
             marginLeft={10} position='relative'
@@ -41,14 +48,18 @@ const Counter = (props) => {
             onPress={() => {setCount2(count2 + 1)}} title="+"
           />
        </View>
-   );
+    ) 
 }
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    // backgroundColor: 'red',
-  },
-});
-export default Counter;
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      // backgroundColor: 'red',
+    },
+  });
+
+export default Card
+
+
