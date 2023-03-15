@@ -18,8 +18,7 @@ const Counter = (props) => {
             marginLeft={10} position='relative'
             onPress={() => {setCount1(count1 - 1)}} title="-"
           />
-          
-          <Text style={{fontSize: 30, padding: 10}}>{count1}</Text>
+          <Text style={{fontSize: 30, padding: 10, color: 'red'}}>{count1}</Text>
 
           <Icon.Button name='plus-circle' backgroundColor='transparent' color='black' 
             size={30}
@@ -34,7 +33,7 @@ const Counter = (props) => {
             onPress={() => {setCount2(count2 - 1)}} title="-"
           />
 
-          <Text style={{fontSize: 30, padding: 10}}>{count2}</Text>
+          <Text style={{fontSize: 30, padding: 10, color: 'blue'}}>{count2}</Text>
 
           <Icon.Button name='plus-circle' backgroundColor='transparent' color='black' 
             size={30}
