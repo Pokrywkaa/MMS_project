@@ -1,14 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-import Counter from './Counter';
-import Slider_percentege from './Slider_percentege';
 
 const Card = (props) => {
     const [count1, setCount1] = useState(0);
     const [count2, setCount2] = useState(0);
+    if (count1<0){
+      setCount1(0)
+    }
+    if (count2<0){
+      setCount2(0)
+    }
+
     return(
       <View
         style={[
