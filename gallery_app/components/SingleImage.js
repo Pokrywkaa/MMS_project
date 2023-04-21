@@ -4,8 +4,9 @@ import Swiper from "react-native-swiper";
 import ImageZoom from 'react-native-image-pan-zoom';
 
 const SingleImage = (props) => {
+  console.log(props.route.params.index)
   return (
-    <Swiper>
+    <Swiper index={props.route.params.index}>
       {props.route.params.images.map((image, index) => {
         return (
           <View style={styles.slide} key={index}>

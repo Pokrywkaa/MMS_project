@@ -19,20 +19,26 @@ const Home = (props) => {
       return (
         <View style={styles.container}>
           {photo ? (
-            <TouchableOpacity onPress={()=>{
-                // const newPhotos = []
-                // newPhotos.push({
-                //     'id': Math.random()*1000,
-                //     'uri': photo,
-                //     ...photos,
-                // })
-                // setPhotos(newPhotos)
-                setPhotos([...photos, photo])
-                // setPhotos([])
-                setPhoto(null)
-            }}>
-                <Image source={{ uri: photo }} style={styles.photo} />
-            </TouchableOpacity>
+            <View>
+            <Image source={{ uri: photo }} style={styles.photo} />
+            <View style={styles.buttonContainer2}>
+              <Icon.Button name='remove'
+                color='red'
+                size={40}
+                backgroundColor='transparent'
+                onPress={()=>setPhoto(null)}
+                />
+              <Icon.Button name='check'
+                color='green'
+                size={40}
+                backgroundColor='transparent'
+                onPress={()=>{
+                  setPhotos([...photos, photo])
+                  setPhoto(null)
+                }}
+                />
+            </View>
+            </View>
           ) : (
             <View>
             <Camera
@@ -105,18 +111,26 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         alignItems: 'center',
     },
+    buttonContainer2: {
+        flexDirection: 'row',
+        bottom: 0,
+        width: '100%',
+        backgroundColor: '#fff',
+        paddingLeft: 90,
+        alignItems: 'center',
+    },
     button: {
-    backgroundColor: '#2196F3',
-    borderRadius: 10,
-    padding: 10,
+      backgroundColor: '#2196F3',
+      borderRadius: 10,
+      padding: 10,
     },
     buttonText: {
-    color: '#fff',
-    fontSize: 18,
+      color: '#fff',
+      fontSize: 18,
     },
     photo: {
-    width: 300,
-    height: 300,
+      width: 300,
+      height: 300,
     },
     });
         

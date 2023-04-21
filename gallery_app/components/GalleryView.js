@@ -10,9 +10,9 @@ const GalleryView = (props) => {
         data={props.route.params.images}
         keyExtractor={(item, index) => index.toString()}
         numColumns={3} 
-        renderItem={({ item }) => (
+        renderItem={({ item, index }) => (
           <TouchableOpacity
-            onPress={() => props.navigation.navigate("SingleImage", {images: props.route.params.images})}
+            onPress={() => props.navigation.navigate("SingleImage", {images: images, index: index})}
           >
             <Image source={{ uri: item }} style={styles.image} />
           </TouchableOpacity>
